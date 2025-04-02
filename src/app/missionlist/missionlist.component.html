@@ -1,8 +1,31 @@
+
 <app-missionfilter (filterChanged)="onFilterChanged($event)"></app-missionfilter>
 
-<div *ngFor="let mission of launches" style="border: 1px solid black; background-color: lightblue; margin: 10px; padding: 10px;">
-  <img [src]="mission.links.mission_patch_small" alt="Mission Patch" width="100">
-  <h2>{{ mission.mission_name }}</h2>
-  <p><strong>{{ mission.launch_year }}</strong></p>
-  <p>{{ mission.details || 'No details available.' }}</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; padding: 16px;">
+  
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;"> 
+    
+  <mat-card *ngFor="let mission of launches" style="width: 300px; background: #e3f2fd; cursor: pointer;" [routerLink]="['/mission', mission.flight_number]">
+    <img mat-card-image [src]="mission.links?.mission_patch_small" alt="Mission Patch" style="max-height: 150px; object-fit: contain;">
+
+    <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+    <mat-card-subtitle>{{ mission.launch_year }}</mat-card-subtitle>
+
+    <mat-card-content>
+      <p>{{ mission.details || 'No details available.' }}</p>
+      <p><strong>Rocket Name:</strong> {{ mission.rocket?.rocket_name }}</p>
+      <p><strong>Rocket Type:</strong> {{ mission.rocket?.rocket_type }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button color="primary" [routerLink]="['/mission', mission.flight_number]">
+        View Details
+      </button>
+    </mat-card-actions>
+    
+  </mat-card>
+
 </div>
+
+

@@ -2,16 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { SpacexService } from '../spacex.service';
 import { MissionfilterComponent } from '../missionfilter/missionfilter.component';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { Mission } from '../models/mission.model';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-missionlist',
   templateUrl: './missionlist.component.html',
   styleUrls: ['./missionlist.component.css'],
   standalone: true,
-  imports: [CommonModule, MissionfilterComponent]
+  imports: [CommonModule, MissionfilterComponent, RouterModule, MatCardModule, MatButtonModule],
 })
 export class MissionlistComponent implements OnInit {
-  launches: any[] = [];
+  launches: Mission[] = [];
 
   constructor(private spacexService: SpacexService) {}
 

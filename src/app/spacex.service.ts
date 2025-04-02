@@ -26,5 +26,10 @@ export class SpacexService {
     const url = `https://api.spacexdata.com/v3/launches?limit=100${query}`;
     return this.http.get<any>(url);
   }
+
+  getMissionById(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<any>(url);
+  }
   
 }

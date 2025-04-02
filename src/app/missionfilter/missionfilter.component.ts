@@ -1,13 +1,20 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-missionfilter',
   templateUrl: './missionfilter.component.html',
   styleUrls: ['./missionfilter.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule,MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatButtonModule]
 })
 export class MissionfilterComponent implements OnInit {
   @Output() filterChanged = new EventEmitter<any>();

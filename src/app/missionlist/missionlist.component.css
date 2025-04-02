@@ -1,0 +1,44 @@
+/* Outer padding */
+:host {
+    display: block;
+    padding: 16px;
+    background-color: #f4f4f4;
+  }
+  
+  /* Filter section */
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  
+  /* Cards grid */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Each card */
+  mat-card {
+    width: 280px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  mat-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  mat-card-title {
+    font-weight: 600;
+  }
+  
+  mat-card-subtitle {
+    color: #666;
+    font-size: 14px;
+  }
+  

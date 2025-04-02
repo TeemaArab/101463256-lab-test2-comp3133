@@ -1,26 +1,33 @@
+
 <h2>Mission List</h2>
 
-<div>
-  <label><strong>Filter by Launch Year:</strong></label>
-  <input type="text" [(ngModel)]="selectedYear" />
-  <button (click)="onYearChange({ target: { value: selectedYear } })">Filter</button>
+<mat-form-field appearance="fill">
+  <mat-label>Filter by Launch Year</mat-label>
+  <input matInput type="text" [(ngModel)]="selectedYear" />
+</mat-form-field>
+
+<div style="margin-bottom: 16px;">
+  <button mat-raised-button color="primary" (click)="onYearChange({ target: { value: selectedYear } })">
+    Filter
+  </button>
 </div>
 
-<div>
-  <h3>Launch</h3>
-  <label><input type="radio" name="launch" value="true" (change)="onLaunchChange($event)"> Successful</label>
-  <label><input type="radio" name="launch" value="false" (change)="onLaunchChange($event)"> Failed</label>
+<h3>Launch</h3>
+<mat-radio-group (change)="onLaunchChange($event)">
+  <mat-radio-button value="true">Successful</mat-radio-button>
+  <mat-radio-button value="false" style="margin-left: 16px;">Failed</mat-radio-button>
+</mat-radio-group>
+
+<h3>Landing</h3>
+<mat-radio-group (change)="onLandChange($event)">
+  <mat-radio-button value="true">Successful</mat-radio-button>
+  <mat-radio-button value="false" style="margin-left: 16px;">Failed</mat-radio-button>
+</mat-radio-group>
+
+<div style="margin-top: 16px;">
+  <button mat-stroked-button color="warn" (click)="resetFilters()">Reset Filters</button>
 </div>
 
-<div>
-  <h3>Landing</h3>
-  <label><input type="radio" name="land" value="true" (change)="onLandChange($event)"> Successful</label>
-  <label><input type="radio" name="land" value="false" (change)="onLandChange($event)"> Failed</label>
-</div>
-
-<div>
-  <button (click)="resetFilters()">Reset Filters</button>
-</div>
 
   
 
