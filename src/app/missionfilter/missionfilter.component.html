@@ -1,0 +1,27 @@
+<h2>Mission List</h2>
+
+<div>
+  <label><strong>Filter by Launch Year:</strong></label>
+  <input type="text" [(ngModel)]="selectedYear" />
+  <button (click)="onYearChange({ target: { value: selectedYear } })">Filter</button>
+</div>
+
+<div>
+  <h3>Launch</h3>
+  <label><input type="radio" name="launch" value="true" (change)="onLaunchChange($event)"> Successful</label>
+  <label><input type="radio" name="launch" value="false" (change)="onLaunchChange($event)"> Failed</label>
+</div>
+
+<div>
+  <h3>Landing</h3>
+  <label><input type="radio" name="land" value="true" (change)="onLandChange($event)"> Successful</label>
+  <label><input type="radio" name="land" value="false" (change)="onLandChange($event)"> Failed</label>
+</div>
+
+<div>
+  <button (click)="resetFilters()">Reset Filters</button>
+</div>
+
+  
+
+
